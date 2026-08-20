@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Assess change blast radius</title>
+  <desc id="desc">Visual for the Assess change blast radius skill, written by Ragnar Pitla.</desc>
+  <style>
+    .eyebrow,.slug,.author,.serial{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;letter-spacing:2px}
+    .title{font-family:"Segoe UI",Arial,sans-serif;font-size:52px;font-weight:750;letter-spacing:-1.5px}
+    .line,.alt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .line{stroke:#FFB900;stroke-width:12}.alt{stroke:#F7630C;stroke-width:12}
+    .soft{fill:#FFB900;fill-opacity:.14;stroke:#FFB900;stroke-width:5}
+    .node{fill:#0B1220;stroke:#FFB900;stroke-width:10}.alt-fill{fill:#F7630C}
+  </style>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <path d="M0 84H1200M0 546H1200M640 0V630" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <path d="M675 44h447v512H675z" fill="#111B2D" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <rect width="14" height="630" fill="#FFB900"/>
+  <text class="eyebrow" x="72" y="102" fill="#FFB900" font-size="18">REVIEW / MICROSOFT AGENT SKILL</text>
+  <text class="title" fill="#F8FAFC"><tspan x="72" y="248">Assess change blast</tspan><tspan x="72" y="310">radius</tspan></text>
+  <text class="slug" x="72" y="440" fill="#94A3B8" font-size="18">assess-change-blast-radius</text>
+  <text class="author" x="72" y="574" fill="#F8FAFC" font-size="17">WRITTEN BY RAGNAR PITLA</text>
+  <text class="serial" x="1116" y="574" text-anchor="end" fill="#64748B" font-size="15">SKILL 438</text>
+  <g transform="translate(720 112)">
+    <circle class="soft" cx="180" cy="180" r="148"/>
+    <circle class="alt" cx="180" cy="180" r="108"/>
+    <circle class="line" cx="180" cy="180" r="64"/>
+    <circle class="node alt-fill" cx="180" cy="180" r="22"/>
+    <path class="line" d="M180 18v38M180 304v38M18 180h38M304 180h38"/></g>
+</svg>

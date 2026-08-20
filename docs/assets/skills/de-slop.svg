@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">De-slop</title>
+  <desc id="desc">Visual for the De-slop skill, written by Ragnar Pitla.</desc>
+  <style>
+    .eyebrow,.slug,.author,.serial{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;letter-spacing:2px}
+    .title{font-family:"Segoe UI",Arial,sans-serif;font-size:52px;font-weight:750;letter-spacing:-1.5px}
+    .line,.alt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .line{stroke:#FF8A65;stroke-width:12}.alt{stroke:#D83B01;stroke-width:12}
+    .soft{fill:#FF8A65;fill-opacity:.14;stroke:#FF8A65;stroke-width:5}
+    .node{fill:#0B1220;stroke:#FF8A65;stroke-width:10}.alt-fill{fill:#D83B01}
+  </style>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <path d="M0 84H1200M0 546H1200M640 0V630" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <path d="M675 44h447v512H675z" fill="#111B2D" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <rect width="14" height="630" fill="#FF8A65"/>
+  <text class="eyebrow" x="72" y="102" fill="#FF8A65" font-size="18">DELIVER / MICROSOFT AGENT SKILL</text>
+  <text class="title" fill="#F8FAFC"><tspan x="72" y="286">De-slop</tspan></text>
+  <text class="slug" x="72" y="440" fill="#94A3B8" font-size="18">de-slop</text>
+  <text class="author" x="72" y="574" fill="#F8FAFC" font-size="17">WRITTEN BY RAGNAR PITLA</text>
+  <text class="serial" x="1116" y="574" text-anchor="end" fill="#64748B" font-size="15">SKILL 213</text>
+  <g transform="translate(720 112)">
+    <rect class="soft" x="30" y="62" width="122" height="236" rx="18"/>
+    <path class="line" d="M56 112h72M56 154h62M56 196h74M56 238h48"/>
+    <path class="alt" d="m54 250 76-150"/>
+    <path class="alt" d="M166 180h42m-18-22 22 22-22 22"/>
+    <rect class="soft alt-fill" x="212" y="62" width="122" height="236" rx="18"/>
+    <path class="line" d="M238 112h72M238 154h48M238 196h66M238 238h58"/></g>
+</svg>

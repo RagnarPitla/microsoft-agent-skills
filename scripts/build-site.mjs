@@ -2,10 +2,10 @@
  * Generates docs/index.html - the landing page for the published site.
  *
  * Generated rather than hand-written for the same reason every other artefact
- * here is: a hand-listed index of 21 skills goes stale the first time someone
- * adds one, and a site that omits a skill is worse than no site, because a
- * reader trusts it. `npm run check` fails when the committed page no longer
- * matches the skills on disk.
+ * here is: a hand-listed index goes stale the first time someone adds a skill,
+ * and a site that omits one is worse than no site, because a reader trusts it.
+ * `npm run check` fails when the committed page, skill metadata or skill
+ * visuals no longer match the skills on disk.
  *
  * Install commands are parsed out of .agents/install-block.md rather than
  * restated, because that file is the single source of truth for installation
@@ -19,6 +19,12 @@ import { readFileSync, writeFileSync, existsSync, mkdirSync, realpathSync } from
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import { ROOT, loadSkills, PROMOTED, BUCKET_BLURB } from "./lib/skills.mjs";
+import {
+  FEATURED_SKILL,
+  buildSkillVisual,
+  skillVisualFile,
+  skillVisualUrl,
+} from "./lib/site-visuals.mjs";
 
 export const SITE_PAGE = "docs/index.html";
 export const SITE_DATA = "docs/_data/skills.yml";
@@ -60,10 +66,10 @@ const INSTALL_NOTES = {
 };
 
 const STEPS = [
-  ["Install once", "Clone the repo or add it as a plugin. Every skill is a Markdown file, so there is nothing to run and nothing to keep in sync."],
-  ["Ask, or just work", "Three skills wait to be asked, because an interview that starts itself is worse than no interview. The other eighteen load themselves when the task matches."],
-  ["It follows a method", "A skill is not a prompt. It carries the order to do things in, the questions to ask, and the failure it is written to prevent."],
-  ["The gates keep it honest", "Every claim carries the date it was last checked against Microsoft's docs, and every link is re-tested on a schedule."],
+  ["Install once", () => "Clone the repo or add it as a plugin. Every skill is a Markdown file, so there is nothing to run and nothing to keep in sync."],
+  ["Ask, or just work", ({ userInvoked, automatic }) => `${userInvoked} ${userInvoked === 1 ? "skill waits" : "skills wait"} to be asked, because an interview that starts itself is worse than no interview. ${automatic} ${automatic === 1 ? "skill loads" : "skills load"} automatically when the task matches.`],
+  ["It follows a method", () => "A skill is not a prompt. It carries the order to do things in, the questions to ask, and the failure it is written to prevent."],
+  ["The gates keep it honest", () => "Every claim carries the date it was last checked against Microsoft's docs, and every link is re-tested on a schedule."],
 ];
 
 const FAQ = [
@@ -80,10 +86,28 @@ function skillCard(s) {
     ? '<span class="badge you">You invoke it</span>'
     : '<span class="badge auto">Automatic</span>';
   return `          <a class="skill" href="${esc(s.bucket)}/${esc(s.name)}.html">
-            <h3>${esc(s.displayName || s.name)}</h3>
-            <p>${esc(s.shortDescription || "")}</p>
-            <footer><code>${esc(s.name)}</code>${badge}</footer>
+            <div class="skill-art"><img src="${esc(skillVisualUrl(s))}" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>${esc(s.displayName || s.name)}</h3>
+              <p>${esc(s.shortDescription || "")}</p>
+              <div class="skill-meta"><code>${esc(s.name)}</code>${badge}</div>
+            </div>
           </a>`;
+}
+
+function featuredSkillCard(s) {
+  const badge = s.userInvoked
+    ? '<span class="badge you">You invoke it</span>'
+    : '<span class="badge auto">Automatic</span>';
+  return `      <a class="featured-skill" href="${esc(s.bucket)}/${esc(s.name)}.html">
+        <span class="featured-copy">
+          <span class="featured-kicker">Featured skill of the week</span>
+          <span class="featured-title">${esc(s.displayName || s.name)}</span>
+          <span class="featured-description">${esc(s.shortDescription || "")}</span>
+          <span class="featured-meta">${badge}<span class="featured-action">Open the skill <span aria-hidden="true">-&gt;</span></span></span>
+        </span>
+        <span class="featured-art"><img src="${esc(skillVisualUrl(s))}" alt="" width="1200" height="630"></span>
+      </a>`;
 }
 
 function bucketSection(bucket, skills) {
@@ -148,6 +172,7 @@ export function buildSkillsData(skills) {
         f("user_invoked", Boolean(s.userInvoked)),
         f("url", `/${s.bucket}/${s.name}.html`),
         f("source", `${REPO}/blob/main/skills/${s.bucket}/${s.name}/SKILL.md`),
+        f("visual", skillVisualUrl(s, { rooted: true })),
         prev && f("prev", prev.displayName || prev.name),
         prev && f("prev_url", `/${prev.bucket}/${prev.name}.html`),
         next && f("next", next.displayName || next.name),
@@ -165,6 +190,7 @@ export function buildSkillsData(skills) {
 export function buildSite(skills, installBlock) {
   const promoted = skills.filter((s) => s.promoted);
   const userInvoked = promoted.filter((s) => s.userInvoked).length;
+  const featured = promoted.find((s) => s.name === FEATURED_SKILL) || promoted[0];
   const buckets = PROMOTED.filter((b) => promoted.some((s) => s.bucket === b));
 
   const install = ["Claude Code", "GitHub Copilot", "Codex", "Cursor"]
@@ -172,11 +198,12 @@ export function buildSite(skills, installBlock) {
     .map((n) => installCard(n, installBlock.get(n).slice(0, 1)))
     .join("\n");
 
+  const stepCounts = { userInvoked, automatic: promoted.length - userInvoked };
   const steps = STEPS.map(
     ([title, body], i) => `          <li>
             <span class="num">${i + 1}</span>
             <h3>${esc(title)}</h3>
-            <p>${esc(body)}</p>
+            <p>${esc(body(stepCounts))}</p>
           </li>`,
   ).join("\n");
 
@@ -197,6 +224,7 @@ export function buildSite(skills, installBlock) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Microsoft Agent Skills - ${esc(TAGLINE)}</title>
 <meta name="description" content="${esc(TAGLINE)}">
+<meta name="author" content="Ragnar Pitla">
 <meta property="og:title" content="Microsoft Agent Skills">
 <meta property="og:description" content="${esc(TAGLINE)}">
 <meta property="og:image" content="${REPO}/raw/main/docs/assets/readme-hero.png">
@@ -228,6 +256,7 @@ export function buildSite(skills, installBlock) {
   <section class="hero">
     <div class="wrap hero-in">
       <div class="hero-copy">
+        <p class="byline">Written by <a href="https://www.linkedin.com/in/ragnarpitla">Ragnar Pitla</a></p>
         <h1>Agent skills for the Microsoft stack, written from real builds.</h1>
         <p class="lede">Most agent advice stops at the demo. These ${promoted.length} skills carry the part after that: the order to do things in, the questions worth asking before you build, and the failures that only show up once real users arrive.</p>
         <p class="lede">Plain Markdown, no harness lock-in. If your tool can read a file into context, it can run these.</p>
@@ -247,7 +276,7 @@ export function buildSite(skills, installBlock) {
     <div class="wrap narrow">
       <h2>You have probably hit this</h2>
       <p>The agent demos beautifully. Then it goes to real users, and it answers a question three different ways in three sessions, cites a page that does not say what it claims, and nobody can tell you who owns it or what it costs to run.</p>
-      <p>None of that is a model problem. It is the part of the work that happens after the demo, and it is the part almost nobody writes down. That is what is in here.</p>
+      <p>A stronger model alone will not fix those failures. Grounding, evaluation, ownership and operations are the part of the work that happens after the demo, and the part almost nobody writes down. That is what is in here.</p>
     </div>
   </section>
 
@@ -265,6 +294,7 @@ ${steps}
     <div class="wrap">
       <h2>The skill set</h2>
       <p class="sub">Grouped by what you are doing, not by which Microsoft product is involved. Products get renamed, and a skill filed under a renamed product becomes unfindable.</p>
+${featured ? featuredSkillCard(featured) : ""}
       <div class="buckets">
 ${buckets.map((b) => bucketSection(b, promoted)).join("\n\n")}
       </div>
@@ -358,11 +388,19 @@ const isMain = Boolean(invokedAs) && invokedAs === realpathOrNull(fileURLToPath(
 
 if (isMain) {
   const skills = loadSkills();
+  const featured = skills.find((s) => s.promoted && s.name === FEATURED_SKILL);
+  if (!featured) {
+    console.error(`Featured skill "${FEATURED_SKILL}" is missing or not promoted.`);
+    process.exit(1);
+  }
   const installBlock = parseInstallBlock(readFileSync(path.join(ROOT, ".agents/install-block.md"), "utf8"));
   const artefacts = new Map([
     [SITE_PAGE, buildSite(skills, installBlock)],
     [SITE_DATA, buildSkillsData(skills)],
   ]);
+  for (const skill of skills.filter((s) => s.promoted)) {
+    artefacts.set(skillVisualFile(skill), buildSkillVisual(skill));
+  }
   const count = skills.filter((s) => s.promoted).length;
 
   if (process.argv.includes("--check")) {

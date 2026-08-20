@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Copilot Studio production patterns</title>
+  <desc id="desc">Visual for the Copilot Studio production patterns skill, written by Ragnar Pitla.</desc>
+  <style>
+    .eyebrow,.slug,.author,.serial{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;letter-spacing:2px}
+    .title{font-family:"Segoe UI",Arial,sans-serif;font-size:52px;font-weight:750;letter-spacing:-1.5px}
+    .line,.alt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .line{stroke:#4CC2FF;stroke-width:12}.alt{stroke:#0078D4;stroke-width:12}
+    .soft{fill:#4CC2FF;fill-opacity:.14;stroke:#4CC2FF;stroke-width:5}
+    .node{fill:#0B1220;stroke:#4CC2FF;stroke-width:10}.alt-fill{fill:#0078D4}
+  </style>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <path d="M0 84H1200M0 546H1200M640 0V630" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <path d="M675 44h447v512H675z" fill="#111B2D" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <rect width="14" height="630" fill="#4CC2FF"/>
+  <text class="eyebrow" x="72" y="102" fill="#4CC2FF" font-size="18">BUILD / MICROSOFT AGENT SKILL</text>
+  <text class="title" fill="#F8FAFC"><tspan x="72" y="248">Copilot Studio</tspan><tspan x="72" y="310">production patterns</tspan></text>
+  <text class="slug" x="72" y="440" fill="#94A3B8" font-size="18">copilot-studio-production-patterns</text>
+  <text class="author" x="72" y="574" fill="#F8FAFC" font-size="17">WRITTEN BY RAGNAR PITLA</text>
+  <text class="serial" x="1116" y="574" text-anchor="end" fill="#64748B" font-size="15">SKILL 444</text>
+  <g transform="translate(720 112)">
+    <rect class="soft" x="44" y="52" width="116" height="116" rx="18"/>
+    <rect class="line" x="188" y="52" width="116" height="116" rx="18"/>
+    <rect class="line" x="44" y="196" width="116" height="116" rx="18"/>
+    <rect class="soft alt-fill" x="188" y="196" width="116" height="116" rx="18"/>
+    <path class="alt" d="M102 168v28M246 168v28M160 110h28M160 254h28"/></g>
+</svg>

@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Explain concept</title>
+  <desc id="desc">Visual for the Explain concept skill, written by Ragnar Pitla.</desc>
+  <style>
+    .eyebrow,.slug,.author,.serial{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;letter-spacing:2px}
+    .title{font-family:"Segoe UI",Arial,sans-serif;font-size:52px;font-weight:750;letter-spacing:-1.5px}
+    .line,.alt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .line{stroke:#50E6FF;stroke-width:12}.alt{stroke:#008272;stroke-width:12}
+    .soft{fill:#50E6FF;fill-opacity:.14;stroke:#50E6FF;stroke-width:5}
+    .node{fill:#0B1220;stroke:#50E6FF;stroke-width:10}.alt-fill{fill:#008272}
+  </style>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <path d="M0 84H1200M0 546H1200M640 0V630" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <path d="M675 44h447v512H675z" fill="#111B2D" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <rect width="14" height="630" fill="#50E6FF"/>
+  <text class="eyebrow" x="72" y="102" fill="#50E6FF" font-size="18">LEARN / MICROSOFT AGENT SKILL</text>
+  <text class="title" fill="#F8FAFC"><tspan x="72" y="286">Explain concept</tspan></text>
+  <text class="slug" x="72" y="440" fill="#94A3B8" font-size="18">explain-concept</text>
+  <text class="author" x="72" y="574" fill="#F8FAFC" font-size="17">WRITTEN BY RAGNAR PITLA</text>
+  <text class="serial" x="1116" y="574" text-anchor="end" fill="#64748B" font-size="15">SKILL 541</text>
+  <g transform="translate(720 112)">
+    <path class="soft" d="m180 40 140 70-140 70-140-70Z"/>
+    <path class="line" d="m40 170 140 70 140-70M40 230l140 70 140-70"/>
+    <circle class="node alt-fill" cx="180" cy="110" r="24"/>
+    <path class="alt" d="M180 86V56M204 94l22-22M156 94l-22-22"/></g>
+</svg>
