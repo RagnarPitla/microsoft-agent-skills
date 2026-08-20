@@ -1,0 +1,66 @@
+name: pages
+
+# The docs pages were written, structured and then reachable only by someone
+# already browsing the repository tree. This publishes them.
+#
+# Two things must be true before this workflow can deploy, and neither can be
+# done from a commit:
+#
+#   1. The repository must be public, or the account on GitHub Pro or above.
+#      Pages is not available for a private repo on a free plan - the REST API
+#      answers "Your current plan does not support GitHub Pages for this
+#      repository" and Settings offers no Pages section at all.
+#   2. Settings > Pages > Source must be set to "GitHub Actions".
+#
+# Until both are done this workflow fails at the deploy step, which is honest -
+# nothing is silently half-published.
+#
+# Pinned by SHA like every other workflow here: this one holds `pages: write`
+# and `id-token: write`, so a mutable tag would be the weakest link in the repo.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "docs/**"
+      - "README.md"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# Never cancel a running deploy: a half-deployed site is worse than an old one.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/configure-pages@45bfe0192ca1faeb007ade9deae92b16b8254a0d # v6.0.0
+
+      # Renders the Markdown that is already in docs/ - no site generator config
+      # to maintain, and nothing that has to be kept in step with the pages
+      # themselves. The source of truth stays the Markdown in the repository.
+      - uses: actions/jekyll-build-pages@44a6e6beabd48582f863aeeb6cb2151cc1716697 # v1.0.13
+        with:
+          source: ./docs
+          destination: ./_site
+
+      - uses: actions/upload-pages-artifact@fc324d3547104276b827a68afc52ff2a11cc49c9 # v5.0.0
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@cd2ce8fcbc39b97be8ca5fce6e763baed58fa128 # v5.0.0

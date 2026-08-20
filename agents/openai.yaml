@@ -1,0 +1,170 @@
+# Generated from SKILL.md by scripts/build-harnesses.mjs. Do not edit by hand; run `npm run build`.
+skills:
+  - name: ask-ragnar
+    bucket: deliver
+    path: skills/deliver/ask-ragnar/SKILL.md
+    interface:
+      display_name: "Ask Ragnar"
+      short_description: "Work out which skill in this repo fits the situation in front of you."
+    policy:
+      allow_implicit_invocation: false
+  - name: assess-change-blast-radius
+    bucket: review
+    path: skills/review/assess-change-blast-radius/SKILL.md
+    interface:
+      display_name: "Assess change blast radius"
+      short_description: "Work out what a Power Platform or Copilot Studio change breaks somewhere else, before it ships."
+    policy:
+      allow_implicit_invocation: true
+  - name: choose-agent-platform
+    bucket: deliver
+    path: skills/deliver/choose-agent-platform/SKILL.md
+    interface:
+      display_name: "Choose agent platform"
+      short_description: "Work out which Microsoft platform an agent should be built on, and write down why."
+    policy:
+      allow_implicit_invocation: false
+  - name: copilot-studio-auth-patterns
+    bucket: connect
+    path: skills/connect/copilot-studio-auth-patterns/SKILL.md
+    interface:
+      display_name: "Copilot Studio auth patterns"
+      short_description: "Choose and debug authentication for a Copilot Studio agent, including channel reach and token access."
+    policy:
+      allow_implicit_invocation: true
+  - name: copilot-studio-knowledge-grounding
+    bucket: build
+    path: skills/build/copilot-studio-knowledge-grounding/SKILL.md
+    interface:
+      display_name: "Copilot Studio knowledge grounding"
+      short_description: "Diagnose and fix a Copilot Studio agent that hallucinates, cites the wrong source, or answers inconsistently."
+    policy:
+      allow_implicit_invocation: true
+  - name: copilot-studio-production-patterns
+    bucket: build
+    path: skills/build/copilot-studio-production-patterns/SKILL.md
+    interface:
+      display_name: "Copilot Studio production patterns"
+      short_description: "The patterns that separate a Copilot Studio agent that demos well from one that survives production."
+    policy:
+      allow_implicit_invocation: true
+  - name: de-slop
+    bucket: deliver
+    path: skills/deliver/de-slop/SKILL.md
+    interface:
+      display_name: "De-slop"
+      short_description: "Rewrite text that reads like a model wrote it into something a person would send."
+    policy:
+      allow_implicit_invocation: true
+  - name: discovery
+    bucket: deliver
+    path: skills/deliver/discovery/SKILL.md
+    interface:
+      display_name: "Discovery"
+      short_description: "A structured interview that pins down what you are actually building before you build it."
+    policy:
+      allow_implicit_invocation: false
+  - name: evaluate-agent-quality
+    bucket: review
+    path: skills/review/evaluate-agent-quality/SKILL.md
+    interface:
+      display_name: "Evaluate agent quality"
+      short_description: "Measure whether an agent works, and whether it still works, with a recorded eval set."
+    policy:
+      allow_implicit_invocation: true
+  - name: explain-concept
+    bucket: learn
+    path: skills/learn/explain-concept/SKILL.md
+    interface:
+      display_name: "Explain concept"
+      short_description: "Explain a Microsoft ecosystem concept after diagnosing what the person actually misunderstands."
+    policy:
+      allow_implicit_invocation: true
+  - name: govern-agent-lifecycle
+    bucket: operate
+    path: skills/operate/govern-agent-lifecycle/SKILL.md
+    interface:
+      display_name: "Govern agent lifecycle"
+      short_description: "Decide whether an agent should still exist, who owns it, and whether it is governed the way production requires."
+    policy:
+      allow_implicit_invocation: true
+  - name: ground-agents-in-work-context
+    bucket: connect
+    path: skills/connect/ground-agents-in-work-context/SKILL.md
+    interface:
+      display_name: "Ground agents in work context"
+      short_description: "Choose the right grounding layer for an agent across the Microsoft IQ stack, and live with what that choice costs."
+    policy:
+      allow_implicit_invocation: true
+  - name: migrate-agent-to-skills
+    bucket: build
+    path: skills/build/migrate-agent-to-skills/SKILL.md
+    interface:
+      display_name: "Migrate agent to skills"
+      short_description: "Move an existing agent off a monolithic system prompt onto portable, versioned skill files without carrying its rot forward."
+    policy:
+      allow_implicit_invocation: true
+  - name: monitor-agent-telemetry
+    bucket: operate
+    path: skills/operate/monitor-agent-telemetry/SKILL.md
+    interface:
+      display_name: "Monitor agent telemetry"
+      short_description: "Set up the signals that tell you an agent is healthy and being used before a user has to report otherwise."
+    policy:
+      allow_implicit_invocation: true
+  - name: plan-agent-capacity-and-cost
+    bucket: operate
+    path: skills/operate/plan-agent-capacity-and-cost/SKILL.md
+    interface:
+      display_name: "Plan agent capacity and cost"
+      short_description: "Work out whether an agent's message capacity, quota or spend is sized correctly before a limit or a bill surprises someone."
+    policy:
+      allow_implicit_invocation: true
+  - name: power-platform-alm-connection-refs
+    bucket: operate
+    path: skills/operate/power-platform-alm-connection-refs/SKILL.md
+    interface:
+      display_name: "Power Platform ALM connection references"
+      short_description: "Fix and prevent Power Platform solution imports that break on connection references, environment variables and flow ownership."
+    policy:
+      allow_implicit_invocation: true
+  - name: respond-to-agent-incidents
+    bucket: operate
+    path: skills/operate/respond-to-agent-incidents/SKILL.md
+    interface:
+      display_name: "Respond to agent incidents"
+      short_description: "Triage and recover when a live agent is failing right now and users are affected."
+    policy:
+      allow_implicit_invocation: true
+  - name: review-copilot-studio-agent
+    bucket: review
+    path: skills/review/review-copilot-studio-agent/SKILL.md
+    interface:
+      display_name: "Review Copilot Studio agent"
+      short_description: "Review a Copilot Studio agent's YAML for defects that matter before it ships."
+    policy:
+      allow_implicit_invocation: true
+  - name: structured-interview
+    bucket: deliver
+    path: skills/deliver/structured-interview/SKILL.md
+    interface:
+      display_name: "Structured interview"
+      short_description: "Interview the user until every open branch of a plan or design is resolved."
+    policy:
+      allow_implicit_invocation: true
+  - name: what-should-i-build
+    bucket: deliver
+    path: skills/deliver/what-should-i-build/SKILL.md
+    interface:
+      display_name: "What should I build"
+      short_description: "Work out whether this needs an agent at all, and whether to consume, govern or build."
+    policy:
+      allow_implicit_invocation: true
+  - name: write-a-skill
+    bucket: build
+    path: skills/build/write-a-skill/SKILL.md
+    interface:
+      display_name: "Write a skill"
+      short_description: "Write or repair an agent skill so it fires when it should and stays quiet when it should not."
+    policy:
+      allow_implicit_invocation: true

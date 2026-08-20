@@ -1,0 +1,29 @@
+# Dependabot keeps the one moving part honest.
+#
+# Actions are pinned by commit SHA, which is the right call for a workflow that
+# holds `issues: write` - and it is also how a pinned action quietly stays on a
+# version with a known problem forever. Dependabot updates the SHA and the
+# trailing version comment together, which is the whole reason the comment is
+# there.
+#
+# The npm ecosystem is watched for the small Changesets release toolchain.
+# Repository validation and tests still run on Node's standard library alone.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+    labels: ["dependencies"]
+    commit-message:
+      prefix: "ci"
+
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    labels: ["dependencies"]
+    commit-message:
+      prefix: "deps"

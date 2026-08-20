@@ -1,0 +1,84 @@
+name: link-rot
+
+# Documentation URLs rot silently. A skill that confidently sends a reader to a
+# 404 does more damage than a missing skill, so the whole index is re-checked on
+# a schedule and a failure opens an issue rather than waiting to be noticed.
+on:
+  schedule:
+    - cron: "0 7 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: 22
+
+      - name: Check every cited URL
+        id: links
+        run: node scripts/validate-repo.mjs --links 2>&1 | tee link-report.txt
+
+      # Same schedule, same reasoning: star counts and archive flags go stale
+      # without anyone touching a file, so they are maintenance rather than a
+      # contributor's problem. Runs even when the link step failed, because the
+      # two rot independently and one should not mask the other.
+      - name: Check the registry is still accurate
+        if: always()
+        run: node scripts/refresh-stars.mjs --check 2>&1 | tee -a link-report.txt
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Open an issue if anything rotted
+        if: failure()
+        uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
+        with:
+          script: |
+            const fs = require("fs");
+            let report = "";
+            try {
+              report = fs.readFileSync("link-report.txt", "utf8");
+            } catch {
+              report = "No report captured; see the workflow log.";
+            }
+            const title = "Registry maintenance: link rot or stale repository facts";
+            const existing = await github.rest.issues.listForRepo({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: "open",
+              labels: "link-rot",
+            });
+            const body = [
+              "The weekly maintenance check failed - a cited URL rotted, or a registry repository was renamed, archived or drifted. Each entry names the file that cites it.",
+              "",
+              "```",
+              report.trim().slice(0, 55000),
+              "```",
+              "",
+              "Fix by correcting the URL, or - if no verified replacement exists - removing the link and saying so.",
+              "Do not substitute a plausible-looking URL: roughly one in three guessed documentation paths is a 404.",
+            ].join("\n");
+
+            if (existing.data.length) {
+              await github.rest.issues.createComment({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: existing.data[0].number,
+                body,
+              });
+            } else {
+              await github.rest.issues.create({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                title,
+                body,
+                labels: ["link-rot"],
+              });
+            }

@@ -1,0 +1,33 @@
+{
+  "name": "microsoft-agent-skills",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Agent skills for the Microsoft ecosystem - Copilot Studio, Microsoft Foundry, Power Platform, Dynamics 365, Microsoft 365 Copilot, Work IQ, Scout and Azure",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RagnarPitla/microsoft-agent-skills"
+  },
+  "license": "MIT",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build": "node scripts/build-harnesses.mjs && node scripts/build-site.mjs",
+    "check": "node scripts/scrub.mjs && node scripts/build-harnesses.mjs --check && node scripts/build-site.mjs --check && node scripts/validate-repo.mjs && node scripts/check-freshness.mjs && node scripts/sync-plugin-version.mjs --check",
+    "validate": "node scripts/validate-repo.mjs",
+    "refresh:stars": "node scripts/refresh-stars.mjs",
+    "check:stars": "node scripts/refresh-stars.mjs --check",
+    "check:freshness": "node scripts/check-freshness.mjs",
+    "quality-report": "node scripts/quality-report.mjs",
+    "changeset": "changeset",
+    "version": "changeset version && node scripts/sync-plugin-version.mjs",
+    "sync-plugin-version": "node scripts/sync-plugin-version.mjs",
+    "check-plugin-version": "node scripts/sync-plugin-version.mjs --check",
+    "scrub": "node scripts/scrub.mjs",
+    "scrub:all": "node scripts/scrub.mjs --all",
+    "prepare": "node scripts/install-hooks.mjs"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.0"
+  },
+  "packageManager": "npm@10.9.4"
+}

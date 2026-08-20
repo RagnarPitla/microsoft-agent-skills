@@ -1,0 +1,238 @@
+{
+  "$comment": "Generated from SKILL.md by scripts/build-harnesses.mjs. Do not edit by hand; run `npm run build`.",
+  "generator": "scripts/build-harnesses.mjs",
+  "count": 21,
+  "skills": [
+    {
+      "name": "ask-ragnar",
+      "bucket": "deliver",
+      "description": "Work out which skill in this repo fits the situation in front of you, and say so plainly.",
+      "invocation": "user",
+      "promoted": true,
+      "path": "skills/deliver/ask-ragnar/SKILL.md",
+      "docs": "docs/deliver/ask-ragnar.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Watching people install a skill collection and then ask which one to use, which is the question the collection itself should answer."
+    },
+    {
+      "name": "assess-change-blast-radius",
+      "bucket": "review",
+      "description": "Work out what a Power Platform or Copilot Studio change breaks somewhere else, before it ships. Use when a solution is about to be imported into production, when a connection reference or environment variable is being repointed, when a connector is being added to a DLP policy, when trigger phrases or a knowledge source are changing, when a shared component is being deleted, when an agent is about to be published, or when someone asks \"what could this break\".",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/review/assess-change-blast-radius/SKILL.md",
+      "docs": "docs/review/assess-change-blast-radius.md",
+      "verified_on": "2026-08-20",
+      "provenance": "Power Platform and Copilot Studio changes that passed review and broke something in a different solution, environment or channel, and the platform dependency views that would have caught them first."
+    },
+    {
+      "name": "choose-agent-platform",
+      "bucket": "deliver",
+      "description": "Work out which Microsoft platform an agent should be built on, and write down why.",
+      "invocation": "user",
+      "promoted": true,
+      "path": "skills/deliver/choose-agent-platform/SKILL.md",
+      "docs": "docs/deliver/choose-agent-platform.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Platform decisions argued from feature lists, and the six-month regrets that followed when the constraint was never written down."
+    },
+    {
+      "name": "copilot-studio-auth-patterns",
+      "bucket": "connect",
+      "description": "Choose and debug authentication for a Copilot Studio agent. Use when deciding how users sign in, when an agent cannot call a downstream API as the signed-in user, when a token or User variable is empty or shows as Unknown, when an agent cannot be published to the intended channel, or when you need to control who in the organisation can talk to an agent.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/connect/copilot-studio-auth-patterns/SKILL.md",
+      "docs": "docs/connect/copilot-studio-auth-patterns.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Authentication choices made early in a build that only revealed what they had foreclosed at channel publish or first downstream call."
+    },
+    {
+      "name": "copilot-studio-knowledge-grounding",
+      "bucket": "build",
+      "description": "Diagnose and fix a Copilot Studio agent that hallucinates, cites the wrong source, or answers inconsistently. Use when an agent fabricates details not in its knowledge sources, when citations link to irrelevant or non-existent pages, when the same question gets different answers in different sessions, or when curating knowledge sources before go-live.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/build/copilot-studio-knowledge-grounding/SKILL.md",
+      "docs": "docs/build/copilot-studio-knowledge-grounding.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Repeated go-live escalations where an agent was blamed for hallucinating and the knowledge sources turned out to be the cause."
+    },
+    {
+      "name": "copilot-studio-production-patterns",
+      "bucket": "build",
+      "description": "The patterns that separate a Copilot Studio agent that demos well from one that survives production. Use when an agent is being designed for or promoted to production, when an agent works in test but fails with real users, when calls to slow backend systems time out, when context is lost across a multi-agent handoff, or when preparing a production readiness review.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/build/copilot-studio-production-patterns/SKILL.md",
+      "docs": "docs/build/copilot-studio-production-patterns.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Agents that passed a demo and then failed against real tenant latency, real volumes and real users."
+    },
+    {
+      "name": "de-slop",
+      "bucket": "deliver",
+      "description": "Rewrite text that reads like a model wrote it into something a person would actually send. Use when a proposal, customer email, README or executive summary reads like a brand deck, when a draft leans on \"seamless\", \"robust\", \"pivotal moment\" or \"evolving landscape\", when every sentence could be pasted into another company's blog post unchanged, when a document hedges instead of taking a position, or when a reviewer says a page is fine but cannot say what it told them.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/deliver/de-slop/SKILL.md",
+      "docs": "docs/deliver/de-slop.md",
+      "verified_on": "2026-08-20",
+      "provenance": "Editing agent-project prose - proposals, handover notes, README pages and skill bodies - that passed review, said nothing, and had to be rewritten before a customer read it."
+    },
+    {
+      "name": "discovery",
+      "bucket": "deliver",
+      "description": "A structured interview that pins down what you are actually building before you build it.",
+      "invocation": "user",
+      "promoted": true,
+      "path": "skills/deliver/discovery/SKILL.md",
+      "docs": "docs/deliver/discovery.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Engagements that started building before anyone had pinned down what was being built."
+    },
+    {
+      "name": "evaluate-agent-quality",
+      "bucket": "review",
+      "description": "Establish whether an agent actually works, and whether it still works, using a recorded eval set rather than ad hoc chats. Use when an agent is about to ship and the only testing was somebody typing a few questions into the test pane, when an agent that used to answer correctly now does not and nobody can say when it broke, when a knowledge source or model version changed and you need to know what it affected, when a stakeholder asks how accurate it is and there is no number to give them, when you cannot decide what \"correct\" even means for a generative answer, or when the agent works for the builder and fails for a user with different permissions. For a one-off read of a single agent's configuration, review-copilot-studio-agent is the better fit; this one is about measurement over time.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/review/evaluate-agent-quality/SKILL.md",
+      "docs": "docs/review/evaluate-agent-quality.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Agents with no answer to whether they were any good, or still good, beyond ad hoc chats - and the eval sets built to replace that."
+    },
+    {
+      "name": "explain-concept",
+      "bucket": "learn",
+      "description": "Explain a Microsoft ecosystem concept to someone who is confused by it, after working out what they actually misunderstand. Use when someone asks what something is or why it behaves the way it does across Copilot Studio, Power Platform, Dataverse, Dynamics 365, Microsoft Foundry or Entra - particularly when they have already read the documentation and are still stuck.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/learn/explain-concept/SKILL.md",
+      "docs": "docs/learn/explain-concept.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Explanations that answered the question asked rather than the misunderstanding underneath it, and had to be given twice."
+    },
+    {
+      "name": "govern-agent-lifecycle",
+      "bucket": "operate",
+      "description": "Decide whether an agent, flow or environment should still exist, who owns it, and whether it is governed the way production requires. Use when nobody can say who owns an agent that is quietly running in production, when a Center of Excellence inventory has gone stale or was never set up, when an agent was built in a personal or default environment and needs to move before it becomes someone's problem, when DLP policies do not match what an agent actually needs to reach, or when a departing team leaves agents behind with no named owner.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/operate/govern-agent-lifecycle/SKILL.md",
+      "docs": "docs/operate/govern-agent-lifecycle.md",
+      "verified_on": "2026-08-19",
+      "provenance": "Microsoft's Power Platform governance, CoE and environment-strategy documentation, read against the recurring pattern of agents outliving the people who built them."
+    },
+    {
+      "name": "ground-agents-in-work-context",
+      "bucket": "connect",
+      "description": "Choose the right grounding layer for an agent across the Microsoft IQ stack - Work IQ, Fabric IQ, Foundry IQ, Web IQ. Use when an agent can see someone's email, calendar and Teams messages but not the approval rules or business entities it needs, when deciding between workplace signals and an ontology over business data, when someone maps a conceptual \"Business IQ\" or \"Work IQ\" onto Microsoft's products and gets the opposite of what they expected, when an agent needs GL accounts, vendors or authorisation thresholds rather than documents, or when an unattended background agent is being designed on top of Work IQ.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/connect/ground-agents-in-work-context/SKILL.md",
+      "docs": "docs/connect/ground-agents-in-work-context.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Grounding conversations that opened with a named product and had to be walked back to what context was actually missing."
+    },
+    {
+      "name": "migrate-agent-to-skills",
+      "bucket": "build",
+      "description": "Move an existing agent - a prompt-stuffed assistant, a legacy chatbot, a pile of custom instructions, a hand-rolled Python agent - onto a portable skills-based harness without carrying its rot forward. Use when a system prompt has grown past what anyone can review, when someone wants to break a monolithic agent into skills, when moving off Power Virtual Agents or a bespoke framework, when the same behaviour has to run in GitHub Copilot, Claude Code, Cursor and Codex, or when a migration has produced skill files that nothing ever reaches for.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/build/migrate-agent-to-skills/SKILL.md",
+      "docs": "docs/build/migrate-agent-to-skills.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Migrations off prompt-stuffed assistants and legacy chatbots, including the ones that shipped the same rot in a new file layout."
+    },
+    {
+      "name": "monitor-agent-telemetry",
+      "bucket": "operate",
+      "description": "Set up the signals that tell you an agent is healthy, being used and starting to misbehave before a user has to report it. Use when an agent has shipped with no dashboard, alert or usage number behind it, when you cannot say how many sessions escalated to a human last week, when latency or error rates need to be watched continuously rather than sampled by hand, when Application Insights or Foundry tracing needs to be wired up for an agent, or when a stakeholder asks for a usage report and the only source is memory.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/operate/monitor-agent-telemetry/SKILL.md",
+      "docs": "docs/operate/monitor-agent-telemetry.md",
+      "verified_on": "2026-08-19",
+      "provenance": "Microsoft's Copilot Studio analytics and Foundry observability documentation, framed around agents that were live for months before anyone could say whether they worked."
+    },
+    {
+      "name": "plan-agent-capacity-and-cost",
+      "bucket": "operate",
+      "description": "Work out whether an agent's message capacity, quota or spend is sized correctly, before a limit gets hit or a bill surprises someone. Use when a Copilot Studio agent is close to its message capacity or credit allocation, when Foundry model quota or token spend needs to be forecast for a launch, when a finance stakeholder asks what an agent costs and nobody can answer in real numbers, when pay-as-you-go and prepaid credits need to be reconciled, or when usage is growing and nobody has planned for what happens at ten times the current volume.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/operate/plan-agent-capacity-and-cost/SKILL.md",
+      "docs": "docs/operate/plan-agent-capacity-and-cost.md",
+      "verified_on": "2026-08-19",
+      "provenance": "Microsoft's Copilot Studio capacity and Foundry quota and cost documentation, framed around launches sized on optimism rather than measured volume."
+    },
+    {
+      "name": "power-platform-alm-connection-refs",
+      "bucket": "operate",
+      "description": "Fix and prevent Power Platform solution imports that break on connection references, environment variables and flow ownership. Use when a solution import fails or needs manual reconnection in the target environment, when flows turn themselves off after deployment, when a departing employee breaks production, or when setting up a deployment pipeline that should not need hand-holding.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/operate/power-platform-alm-connection-refs/SKILL.md",
+      "docs": "docs/operate/power-platform-alm-connection-refs.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Solution imports that failed on connection references, environment variables and flow ownership, across many environment promotions."
+    },
+    {
+      "name": "respond-to-agent-incidents",
+      "bucket": "operate",
+      "description": "Triage and recover when a live agent is failing right now and users are affected, rather than reviewing its configuration after the fact. Use when an agent has gone down or is answering badly in production and someone is asking what to do in the next few minutes, when it is unclear whether the outage is the agent, the underlying platform or a dependency, when a fix needs to be rolled back safely, when an incident needs a plain-language update sent to stakeholders, or when a postmortem needs to turn into a prevention item rather than a shrug.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/operate/respond-to-agent-incidents/SKILL.md",
+      "docs": "docs/operate/respond-to-agent-incidents.md",
+      "verified_on": "2026-08-19",
+      "provenance": "Microsoft's Power Platform service health, admin notification and ALM documentation, framed around outages where nobody could tell a platform incident from their own change."
+    },
+    {
+      "name": "review-copilot-studio-agent",
+      "bucket": "review",
+      "description": "Review a Copilot Studio agent's YAML for defects that matter before it ships. Use when agent.mcs.yml or topic YAML files are open or in a diff, when reviewing a pull request that changes an agent, or when someone asks whether an agent is ready to promote.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/review/review-copilot-studio-agent/SKILL.md",
+      "docs": "docs/review/review-copilot-studio-agent.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Reading agent YAML before release, and the defects that were consistently found there rather than in testing."
+    },
+    {
+      "name": "structured-interview",
+      "bucket": "deliver",
+      "description": "Interview the user about a plan, design or decision until every open branch is resolved. Use when a request is ambiguous, when scope is unclear, before writing a spec or estimate, when the user asks to be challenged or stress-tested, or when you are about to build something and are not certain what \"done\" means.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/deliver/structured-interview/SKILL.md",
+      "docs": "docs/deliver/structured-interview.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Interviews that ended politely with open branches nobody had named, and the discipline that stopped that happening."
+    },
+    {
+      "name": "what-should-i-build",
+      "bucket": "deliver",
+      "description": "Work out whether the thing in front of you needs an agent at all, and if it does, whether you should consume one, govern the ones you already have, or build a new one. Use when someone has asked for \"an agent\" and you are not convinced they need one, when the honest answer might be a Power Automate flow or a better search box, when Scout, Copilot Studio and Azure-hosted agents are all being proposed for the same problem, when nobody in the room can say which Copilot they mean, or when the real problem is that twenty agents already exist and nobody knows what they do.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/deliver/what-should-i-build/SKILL.md",
+      "docs": "docs/deliver/what-should-i-build.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Requests for an agent that turned out to need governance of existing agents, or nothing built at all."
+    },
+    {
+      "name": "write-a-skill",
+      "bucket": "build",
+      "description": "Write or repair an agent skill so it fires when it should and stays quiet when it should not. Use when drafting a new SKILL.md, when a skill is installed but never reached for, when a description reads like a table of contents, when choosing between user-invoked and model-invoked, when a skill has quietly grown two jobs, or when reviewing someone else's skill before it ships.",
+      "invocation": "model",
+      "promoted": true,
+      "path": "skills/build/write-a-skill/SKILL.md",
+      "docs": "docs/build/write-a-skill.md",
+      "verified_on": "2026-08-18",
+      "provenance": "Reviewing skills that were installed, correct, and never once reached for, plus the description rewrites that fixed them."
+    }
+  ]
+}

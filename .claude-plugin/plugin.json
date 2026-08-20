@@ -1,0 +1,34 @@
+{
+  "name": "microsoft-agent-skills",
+  "version": "0.1.0",
+  "description": "Agent skills for the Microsoft ecosystem - Copilot Studio, Microsoft Foundry, Power Platform, Dynamics 365, Microsoft 365 Copilot, Work IQ, Scout and Azure",
+  "author": {
+    "name": "Ragnar Pitla",
+    "url": "https://github.com/RagnarPitla"
+  },
+  "homepage": "https://github.com/RagnarPitla/microsoft-agent-skills",
+  "license": "MIT",
+  "skills": [
+    "./skills/build/copilot-studio-knowledge-grounding",
+    "./skills/build/copilot-studio-production-patterns",
+    "./skills/build/migrate-agent-to-skills",
+    "./skills/build/write-a-skill",
+    "./skills/connect/copilot-studio-auth-patterns",
+    "./skills/connect/ground-agents-in-work-context",
+    "./skills/deliver/ask-ragnar",
+    "./skills/deliver/choose-agent-platform",
+    "./skills/deliver/de-slop",
+    "./skills/deliver/discovery",
+    "./skills/deliver/structured-interview",
+    "./skills/deliver/what-should-i-build",
+    "./skills/learn/explain-concept",
+    "./skills/operate/govern-agent-lifecycle",
+    "./skills/operate/monitor-agent-telemetry",
+    "./skills/operate/plan-agent-capacity-and-cost",
+    "./skills/operate/power-platform-alm-connection-refs",
+    "./skills/operate/respond-to-agent-incidents",
+    "./skills/review/assess-change-blast-radius",
+    "./skills/review/evaluate-agent-quality",
+    "./skills/review/review-copilot-studio-agent"
+  ]
+}
