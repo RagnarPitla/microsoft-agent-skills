@@ -4,6 +4,7 @@
    page and the front page read as one site. */
 
 :root {
+  color-scheme: light;
   --ink: #0f0f10;
   --ink-soft: #3f3f46;
   --muted: #6b6b76;
@@ -20,23 +21,6 @@
   --wrap: 1120px;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ink: #f4f4f6;
-    --ink-soft: #d3d3da;
-    --muted: #9d9daa;
-    --faint: #85858f;
-    --line: #2a2a31;
-    --line-soft: #212127;
-    --bg: #0d0d10;
-    --band: #131317;
-    --card: #131317;
-    --code-bg: #17171c;
-    --accent: #f4f4f6;
-    --link: #7fb2f5;
-  }
-}
-
 * { box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -50,6 +34,13 @@ body {
 }
 
 a { color: var(--link); }
+
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 3px solid var(--link);
+  outline-offset: 3px;
+}
 
 code {
   font: 13px/1.5 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
@@ -189,6 +180,15 @@ pre code {
   max-width: 17ch;
 }
 
+.byline {
+  margin: 0 0 .75rem;
+  color: var(--muted);
+  font-size: 13.5px;
+  font-weight: 650;
+}
+
+.byline a { color: var(--ink); text-underline-offset: 3px; }
+
 .hero .lede { margin: 0 0 .9rem; font-size: clamp(15.5px, 1.6vw, 17px); color: var(--ink-soft); max-width: 56ch; }
 
 .cta { display: flex; gap: .65rem; flex-wrap: wrap; margin: 1.6rem 0 0; }
@@ -246,6 +246,75 @@ section .sub { margin: 0 0 2rem; color: var(--muted); font-size: 16px; max-width
 
 /* ------------------------------------------------------------------ skills */
 
+.featured-skill {
+  display: grid;
+  grid-template-columns: minmax(0, .82fr) minmax(0, 1.18fr);
+  min-height: 300px;
+  margin: 0 0 clamp(2rem, 4vw, 3rem);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--card);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .15s, transform .15s;
+}
+
+.featured-skill:hover { border-color: var(--muted); transform: translateY(-2px); }
+
+.featured-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(1.4rem, 3.5vw, 2.6rem);
+}
+
+.featured-kicker {
+  display: block;
+  margin-bottom: .8rem;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.featured-title {
+  display: block;
+  margin-bottom: .6rem;
+  color: var(--ink);
+  font-size: clamp(27px, 3.4vw, 42px);
+  font-weight: 800;
+  letter-spacing: -.035em;
+  line-height: 1.08;
+}
+
+.featured-description {
+  display: block;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.featured-meta {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+  margin-top: 1.3rem;
+}
+
+.featured-action { color: var(--ink); font-size: 13.5px; font-weight: 700; }
+
+.featured-art {
+  display: block;
+  min-height: 100%;
+  overflow: hidden;
+  background: #0b1220;
+}
+
+.featured-art img { display: block; width: 100%; height: 100%; object-fit: cover; }
+
 .buckets { display: flex; flex-direction: column; gap: clamp(1.75rem, 3vw, 2.5rem); }
 .bucket { scroll-margin-top: 72px; }
 .bucket-head { display: flex; align-items: baseline; gap: .85rem; flex-wrap: wrap; margin-bottom: .9rem; }
@@ -264,26 +333,30 @@ section .sub { margin: 0 0 2rem; color: var(--muted); font-size: 16px; max-width
   color: var(--ink);
 }
 
-.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(255px, 1fr)); gap: 12px; }
+.skills { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 12px; }
 
 .skill {
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   text-decoration: none;
   color: inherit;
   background: var(--card);
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  padding: 1.05rem 1.15rem .95rem;
   transition: border-color .15s, transform .15s;
 }
 
 .skill:hover { border-color: var(--muted); transform: translateY(-2px); }
+.skill-art { display: block; aspect-ratio: 1200 / 630; overflow: hidden; background: #0b1220; border-bottom: 1px solid var(--line); }
+.skill-art img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .2s; }
+.skill:hover .skill-art img { transform: scale(1.015); }
+.skill-body { display: flex; flex-direction: column; flex: 1; padding: 1rem 1.1rem .95rem; }
 .skill h3 { margin: 0 0 .4rem; font-size: 15.5px; font-weight: 700; letter-spacing: -.015em; line-height: 1.3; }
 .skill p { margin: 0 0 .95rem; font-size: 13.6px; color: var(--muted); line-height: 1.55; flex: 1; }
 
-.skill footer { display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-wrap: wrap; border-top: 1px solid var(--line-soft); padding-top: .6rem; }
-.skill footer code { font-size: 11px; background: none; padding: 0; color: var(--faint); }
+.skill-meta { display: flex; align-items: center; justify-content: space-between; gap: .5rem; flex-wrap: wrap; border-top: 1px solid var(--line-soft); padding-top: .6rem; }
+.skill-meta code { font-size: 11px; background: none; padding: 0; color: var(--faint); }
 
 .badge { font-size: 10.5px; font-weight: 800; letter-spacing: .04em; padding: .16rem .5rem; border-radius: 4px; white-space: nowrap; text-transform: uppercase; }
 .badge.you { background: var(--accent); color: var(--bg); }
@@ -319,12 +392,19 @@ section .sub { margin: 0 0 2rem; color: var(--muted); font-size: 16px; max-width
 
 .doc { padding: clamp(2rem, 5vw, 3.25rem) 0 clamp(2.5rem, 5vw, 4rem); }
 
+.doc-hero { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(1.75rem, 4vw, 3.5rem); align-items: center; }
+.doc-intro { min-width: 0; }
+.doc-visual { margin: 0; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: #0b1220; }
+.doc-visual img { display: block; width: 100%; height: auto; }
+.doc-copy { max-width: 800px; margin: 0 auto; }
+
 .crumb { margin: 0 0 1rem; font-size: 13px; color: var(--faint); display: flex; gap: .45rem; }
 .crumb a { color: var(--muted); text-decoration: none; }
 .crumb a:hover { color: var(--ink); text-decoration: underline; }
 
 .doc-title { margin: 0 0 .6rem; font-size: clamp(27px, 4vw, 38px); font-weight: 800; letter-spacing: -.03em; line-height: 1.15; }
 .doc-sub { margin: 0 0 1.2rem; font-size: 17px; color: var(--ink-soft); }
+.doc-intro .byline { margin-bottom: .65rem; }
 
 .doc-meta { display: flex; align-items: center; gap: .75rem; flex-wrap: wrap; padding-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
 .doc-meta code { font-size: 12.5px; }
@@ -392,6 +472,10 @@ section .sub { margin: 0 0 2rem; color: var(--muted); font-size: 16px; max-width
   .hero-art { order: -1; }
   .hero h1 { max-width: none; }
   .brand-note { display: none; }
+  .featured-skill { grid-template-columns: 1fr; }
+  .featured-art { order: -1; min-height: 0; aspect-ratio: 1200 / 630; }
+  .doc-hero { grid-template-columns: 1fr; }
+  .doc-visual { order: -1; }
 }
 
 @media (max-width: 660px) {

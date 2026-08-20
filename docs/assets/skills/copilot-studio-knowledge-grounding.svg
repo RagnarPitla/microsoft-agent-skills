@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Copilot Studio knowledge grounding</title>
+  <desc id="desc">Visual for the Copilot Studio knowledge grounding skill, written by Ragnar Pitla.</desc>
+  <style>
+    .eyebrow,.slug,.author,.serial{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;letter-spacing:2px}
+    .title{font-family:"Segoe UI",Arial,sans-serif;font-size:52px;font-weight:750;letter-spacing:-1.5px}
+    .line,.alt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .line{stroke:#4CC2FF;stroke-width:12}.alt{stroke:#0078D4;stroke-width:12}
+    .soft{fill:#4CC2FF;fill-opacity:.14;stroke:#4CC2FF;stroke-width:5}
+    .node{fill:#0B1220;stroke:#4CC2FF;stroke-width:10}.alt-fill{fill:#0078D4}
+  </style>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <path d="M0 84H1200M0 546H1200M640 0V630" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <path d="M675 44h447v512H675z" fill="#111B2D" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <rect width="14" height="630" fill="#4CC2FF"/>
+  <text class="eyebrow" x="72" y="102" fill="#4CC2FF" font-size="18">BUILD / MICROSOFT AGENT SKILL</text>
+  <text class="title" fill="#F8FAFC"><tspan x="72" y="248">Copilot Studio</tspan><tspan x="72" y="310">knowledge grounding</tspan></text>
+  <text class="slug" x="72" y="440" fill="#94A3B8" font-size="18">copilot-studio-knowledge-grounding</text>
+  <text class="author" x="72" y="574" fill="#F8FAFC" font-size="17">WRITTEN BY RAGNAR PITLA</text>
+  <text class="serial" x="1116" y="574" text-anchor="end" fill="#64748B" font-size="15">SKILL 037</text>
+  <g transform="translate(720 112)">
+    <path class="line" d="M58 214 146 88 280 142 236 278 92 292Z"/>
+    <path class="alt" d="M146 88 236 278M58 214l222-72"/>
+    <circle class="node" cx="58" cy="214" r="22"/><circle class="node alt-fill" cx="146" cy="88" r="24"/>
+    <circle class="node" cx="280" cy="142" r="20"/><circle class="node alt-fill" cx="236" cy="278" r="25"/>
+    <circle class="node" cx="92" cy="292" r="17"/></g>
+</svg>

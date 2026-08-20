@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Monitor agent telemetry</title>
+  <desc id="desc">Visual for the Monitor agent telemetry skill, written by Ragnar Pitla.</desc>
+  <style>
+    .eyebrow,.slug,.author,.serial{font-family:"Segoe UI",Arial,sans-serif;font-weight:700;letter-spacing:2px}
+    .title{font-family:"Segoe UI",Arial,sans-serif;font-size:52px;font-weight:750;letter-spacing:-1.5px}
+    .line,.alt{fill:none;stroke-linecap:round;stroke-linejoin:round}
+    .line{stroke:#81C784;stroke-width:12}.alt{stroke:#107C10;stroke-width:12}
+    .soft{fill:#81C784;fill-opacity:.14;stroke:#81C784;stroke-width:5}
+    .node{fill:#0B1220;stroke:#81C784;stroke-width:10}.alt-fill{fill:#107C10}
+  </style>
+  <rect width="1200" height="630" fill="#0B1220"/>
+  <path d="M0 84H1200M0 546H1200M640 0V630" stroke="#FFFFFF" stroke-opacity=".08"/>
+  <path d="M675 44h447v512H675z" fill="#111B2D" stroke="#FFFFFF" stroke-opacity=".09"/>
+  <rect width="14" height="630" fill="#81C784"/>
+  <text class="eyebrow" x="72" y="102" fill="#81C784" font-size="18">OPERATE / MICROSOFT AGENT SKILL</text>
+  <text class="title" fill="#F8FAFC"><tspan x="72" y="248">Monitor agent</tspan><tspan x="72" y="310">telemetry</tspan></text>
+  <text class="slug" x="72" y="440" fill="#94A3B8" font-size="18">monitor-agent-telemetry</text>
+  <text class="author" x="72" y="574" fill="#F8FAFC" font-size="17">WRITTEN BY RAGNAR PITLA</text>
+  <text class="serial" x="1116" y="574" text-anchor="end" fill="#64748B" font-size="15">SKILL 247</text>
+  <g transform="translate(720 112)">
+    <rect class="soft" x="30" y="62" width="300" height="236" rx="24"/>
+    <path class="line" d="M54 192h58l30-76 54 144 40-104 26 36h44"/>
+    <circle class="node alt-fill" cx="142" cy="116" r="13"/>
+    <circle class="node" cx="236" cy="156" r="13"/></g>
+</svg>

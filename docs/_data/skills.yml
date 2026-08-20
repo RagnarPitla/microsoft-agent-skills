@@ -6,6 +6,7 @@
   user_invoked: false
   url: "/build/copilot-studio-knowledge-grounding.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/build/copilot-studio-knowledge-grounding/SKILL.md"
+  visual: "/assets/skills/copilot-studio-knowledge-grounding.svg"
   next: "Copilot Studio production patterns"
   next_url: "/build/copilot-studio-production-patterns.html"
 - name: "copilot-studio-production-patterns"
@@ -15,6 +16,7 @@
   user_invoked: false
   url: "/build/copilot-studio-production-patterns.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/build/copilot-studio-production-patterns/SKILL.md"
+  visual: "/assets/skills/copilot-studio-production-patterns.svg"
   prev: "Copilot Studio knowledge grounding"
   prev_url: "/build/copilot-studio-knowledge-grounding.html"
   next: "Migrate agent to skills"
@@ -26,6 +28,7 @@
   user_invoked: false
   url: "/build/migrate-agent-to-skills.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/build/migrate-agent-to-skills/SKILL.md"
+  visual: "/assets/skills/migrate-agent-to-skills.svg"
   prev: "Copilot Studio production patterns"
   prev_url: "/build/copilot-studio-production-patterns.html"
   next: "Write a skill"
@@ -37,6 +40,7 @@
   user_invoked: false
   url: "/build/write-a-skill.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/build/write-a-skill/SKILL.md"
+  visual: "/assets/skills/write-a-skill.svg"
   prev: "Migrate agent to skills"
   prev_url: "/build/migrate-agent-to-skills.html"
   next: "Copilot Studio auth patterns"
@@ -48,6 +52,7 @@
   user_invoked: false
   url: "/connect/copilot-studio-auth-patterns.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/connect/copilot-studio-auth-patterns/SKILL.md"
+  visual: "/assets/skills/copilot-studio-auth-patterns.svg"
   prev: "Write a skill"
   prev_url: "/build/write-a-skill.html"
   next: "Ground agents in work context"
@@ -59,6 +64,7 @@
   user_invoked: false
   url: "/connect/ground-agents-in-work-context.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/connect/ground-agents-in-work-context/SKILL.md"
+  visual: "/assets/skills/ground-agents-in-work-context.svg"
   prev: "Copilot Studio auth patterns"
   prev_url: "/connect/copilot-studio-auth-patterns.html"
   next: "Assess change blast radius"
@@ -70,6 +76,7 @@
   user_invoked: false
   url: "/review/assess-change-blast-radius.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/review/assess-change-blast-radius/SKILL.md"
+  visual: "/assets/skills/assess-change-blast-radius.svg"
   prev: "Ground agents in work context"
   prev_url: "/connect/ground-agents-in-work-context.html"
   next: "Evaluate agent quality"
@@ -81,6 +88,7 @@
   user_invoked: false
   url: "/review/evaluate-agent-quality.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/review/evaluate-agent-quality/SKILL.md"
+  visual: "/assets/skills/evaluate-agent-quality.svg"
   prev: "Assess change blast radius"
   prev_url: "/review/assess-change-blast-radius.html"
   next: "Review Copilot Studio agent"
@@ -92,6 +100,7 @@
   user_invoked: false
   url: "/review/review-copilot-studio-agent.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/review/review-copilot-studio-agent/SKILL.md"
+  visual: "/assets/skills/review-copilot-studio-agent.svg"
   prev: "Evaluate agent quality"
   prev_url: "/review/evaluate-agent-quality.html"
   next: "Govern agent lifecycle"
@@ -103,6 +112,7 @@
   user_invoked: false
   url: "/operate/govern-agent-lifecycle.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/operate/govern-agent-lifecycle/SKILL.md"
+  visual: "/assets/skills/govern-agent-lifecycle.svg"
   prev: "Review Copilot Studio agent"
   prev_url: "/review/review-copilot-studio-agent.html"
   next: "Monitor agent telemetry"
@@ -114,6 +124,7 @@
   user_invoked: false
   url: "/operate/monitor-agent-telemetry.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/operate/monitor-agent-telemetry/SKILL.md"
+  visual: "/assets/skills/monitor-agent-telemetry.svg"
   prev: "Govern agent lifecycle"
   prev_url: "/operate/govern-agent-lifecycle.html"
   next: "Plan agent capacity and cost"
@@ -125,6 +136,7 @@
   user_invoked: false
   url: "/operate/plan-agent-capacity-and-cost.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/operate/plan-agent-capacity-and-cost/SKILL.md"
+  visual: "/assets/skills/plan-agent-capacity-and-cost.svg"
   prev: "Monitor agent telemetry"
   prev_url: "/operate/monitor-agent-telemetry.html"
   next: "Power Platform ALM connection references"
@@ -136,6 +148,7 @@
   user_invoked: false
   url: "/operate/power-platform-alm-connection-refs.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/operate/power-platform-alm-connection-refs/SKILL.md"
+  visual: "/assets/skills/power-platform-alm-connection-refs.svg"
   prev: "Plan agent capacity and cost"
   prev_url: "/operate/plan-agent-capacity-and-cost.html"
   next: "Respond to agent incidents"
@@ -147,6 +160,7 @@
   user_invoked: false
   url: "/operate/respond-to-agent-incidents.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/operate/respond-to-agent-incidents/SKILL.md"
+  visual: "/assets/skills/respond-to-agent-incidents.svg"
   prev: "Power Platform ALM connection references"
   prev_url: "/operate/power-platform-alm-connection-refs.html"
   next: "Ask Ragnar"
@@ -158,6 +172,7 @@
   user_invoked: true
   url: "/deliver/ask-ragnar.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/deliver/ask-ragnar/SKILL.md"
+  visual: "/assets/skills/ask-ragnar.svg"
   prev: "Respond to agent incidents"
   prev_url: "/operate/respond-to-agent-incidents.html"
   next: "Choose agent platform"
@@ -169,6 +184,7 @@
   user_invoked: true
   url: "/deliver/choose-agent-platform.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/deliver/choose-agent-platform/SKILL.md"
+  visual: "/assets/skills/choose-agent-platform.svg"
   prev: "Ask Ragnar"
   prev_url: "/deliver/ask-ragnar.html"
   next: "De-slop"
@@ -180,6 +196,7 @@
   user_invoked: false
   url: "/deliver/de-slop.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/deliver/de-slop/SKILL.md"
+  visual: "/assets/skills/de-slop.svg"
   prev: "Choose agent platform"
   prev_url: "/deliver/choose-agent-platform.html"
   next: "Discovery"
@@ -191,6 +208,7 @@
   user_invoked: true
   url: "/deliver/discovery.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/deliver/discovery/SKILL.md"
+  visual: "/assets/skills/discovery.svg"
   prev: "De-slop"
   prev_url: "/deliver/de-slop.html"
   next: "Structured interview"
@@ -202,6 +220,7 @@
   user_invoked: false
   url: "/deliver/structured-interview.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/deliver/structured-interview/SKILL.md"
+  visual: "/assets/skills/structured-interview.svg"
   prev: "Discovery"
   prev_url: "/deliver/discovery.html"
   next: "What should I build"
@@ -213,6 +232,7 @@
   user_invoked: false
   url: "/deliver/what-should-i-build.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/deliver/what-should-i-build/SKILL.md"
+  visual: "/assets/skills/what-should-i-build.svg"
   prev: "Structured interview"
   prev_url: "/deliver/structured-interview.html"
   next: "Explain concept"
@@ -224,5 +244,6 @@
   user_invoked: false
   url: "/learn/explain-concept.html"
   source: "https://github.com/RagnarPitla/microsoft-agent-skills/blob/main/skills/learn/explain-concept/SKILL.md"
+  visual: "/assets/skills/explain-concept.svg"
   prev: "What should I build"
   prev_url: "/deliver/what-should-i-build.html"

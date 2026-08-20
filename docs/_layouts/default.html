@@ -10,7 +10,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{% if skill %}{{ skill.title }} - {% endif %}{{ site.title }}</title>
-{% if skill %}<meta name="description" content="{{ skill.short }}">{% endif %}
+<meta name="author" content="Ragnar Pitla">
+{% if skill %}
+<meta name="description" content="{{ skill.short }}">
+<meta property="og:title" content="{{ skill.title }} - {{ site.title }}">
+<meta property="og:description" content="{{ skill.short }}">
+<!-- Social crawlers do not reliably render SVG skill art. -->
+<meta property="og:image" content="{{ '/assets/readme-hero.png' | absolute_url }}">
+<meta name="twitter:card" content="summary_large_image">
+{% endif %}
 <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 <link rel="stylesheet" href="{{ '/assets/site.css' | relative_url }}">
 </head>
@@ -33,32 +41,42 @@
 </header>
 
 <main class="doc">
-  <div class="wrap narrow">
+  <div class="wrap{% unless skill %} narrow{% endunless %}">
 
     {% if skill %}
-    <p class="crumb">
-      <a href="{{ '/#skills' | relative_url }}">Skills</a>
-      <span>/</span>
-      <a href="{{ '/#' | append: skill.bucket | relative_url }}">{{ skill.bucket }}</a>
-    </p>
+    <div class="doc-hero">
+      <div class="doc-intro">
+        <p class="crumb">
+          <a href="{{ '/#skills' | relative_url }}">Skills</a>
+          <span>/</span>
+          <a href="{{ '/#' | append: skill.bucket | relative_url }}">{{ skill.bucket }}</a>
+        </p>
 
-    <h1 class="doc-title">{{ skill.title }}</h1>
-    <p class="doc-sub">{{ skill.short }}</p>
+        <h1 class="doc-title">{{ skill.title }}</h1>
+        <p class="byline">Written by <a href="https://www.linkedin.com/in/ragnarpitla">Ragnar Pitla</a></p>
+        <p class="doc-sub">{{ skill.short }}</p>
 
-    <div class="doc-meta">
-      {% if skill.user_invoked %}
-        <span class="badge you">You invoke it</span>
-      {% else %}
-        <span class="badge auto">Reached for automatically</span>
-      {% endif %}
-      <code>{{ skill.name }}</code>
-      <a href="{{ skill.source }}">View the skill on GitHub</a>
+        <div class="doc-meta">
+          {% if skill.user_invoked %}
+            <span class="badge you">You invoke it</span>
+          {% else %}
+            <span class="badge auto">Reached for automatically</span>
+          {% endif %}
+          <code>{{ skill.name }}</code>
+          <a href="{{ skill.source }}">View the skill on GitHub</a>
+        </div>
+
+        <div class="invoke">
+          <p class="invoke-label">{% if skill.user_invoked %}Ask for it by name{% else %}Ask for it directly, or let it fire on its own{% endif %}</p>
+          <pre><code>/{{ skill.name }}</code></pre>
+        </div>
+      </div>
+
+      <figure class="doc-visual">
+        <img src="{{ skill.visual | relative_url }}" alt="" width="1200" height="630">
+      </figure>
     </div>
-
-    <div class="invoke">
-      <p class="invoke-label">{% if skill.user_invoked %}Ask for it by name{% else %}Ask for it directly, or let it fire on its own{% endif %}</p>
-      <pre><code>/{{ skill.name }}</code></pre>
-    </div>
+    <div class="doc-copy">
     {% endif %}
 
     <article class="prose{% if skill %} has-title{% endif %}">
@@ -76,6 +94,10 @@
         <a class="next" href="{{ skill.next_url | relative_url }}"><span>Next</span>{{ skill.next }}</a>
       {% endif %}
     </nav>
+    {% endif %}
+
+    {% if skill %}
+    </div>
     {% endif %}
 
   </div>

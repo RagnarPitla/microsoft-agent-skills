@@ -12,10 +12,11 @@
 
 import { test } from "node:test";
 import assert from "node:assert/strict";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import path from "node:path";
 import { scratchRepo, site, addSkill, REPO } from "./helpers.mjs";
 import { parseInstallBlock, buildSite, buildSkillsData } from "../scripts/build-site.mjs";
+import { FEATURED_SKILL, buildSkillVisual } from "../scripts/lib/site-visuals.mjs";
 
 const stale = (result, file) => {
   assert.equal(result.code, 1, `expected a non-zero exit.\n---\n${result.output}`);
@@ -53,6 +54,18 @@ test("a hand-edited skills data file is reported stale", (t) => {
 test("a deleted skills data file is reported stale", (t) => {
   const dir = scratchRepo(t, (s) => s.remove("docs/_data/skills.yml"));
   stale(site(dir, ["--check"]), "docs/_data/skills.yml");
+});
+
+test("a deleted skill visual is reported stale", (t) => {
+  const dir = scratchRepo(t, (s) => s.remove("docs/assets/skills/de-slop.svg"));
+  stale(site(dir, ["--check"]), "docs/assets/skills/de-slop.svg");
+});
+
+test("a hand-edited skill visual is reported stale", (t) => {
+  const dir = scratchRepo(t, (s) => {
+    s.edit("docs/assets/skills/de-slop.svg", (text) => text.replace("WRITTEN BY RAGNAR PITLA", "WRITTEN BY SOMEONE ELSE"));
+  });
+  stale(site(dir, ["--check"]), "docs/assets/skills/de-slop.svg");
 });
 
 test("a new skill added without a rebuild is reported stale", (t) => {
@@ -128,6 +141,48 @@ test("a skill links to its own page", () => {
   assert.match(buildSite(oneSkill(), new Map()), /href="build\/a-skill\.html"/);
 });
 
+test("every skill card carries its generated visual", () => {
+  const html = buildSite(oneSkill(), new Map());
+  assert.match(html, /src="assets\/skills\/a-skill\.svg"/);
+  assert.match(html, /width="1200" height="630" loading="lazy"/);
+  assert.match(html, /<div class="skill-body">/);
+  assert.doesNotMatch(html, /<span class="skill-body">/);
+});
+
+test("de-slop is the featured skill above the bucket list", () => {
+  const html = buildSite(
+    [
+      ...oneSkill(),
+      {
+        name: FEATURED_SKILL,
+        bucket: "deliver",
+        promoted: true,
+        userInvoked: false,
+        displayName: "De-slop",
+        shortDescription: "Rewrite generated prose.",
+      },
+    ],
+    new Map(),
+  );
+  const featuredAt = html.indexOf('<a class="featured-skill"');
+  const bucketsAt = html.indexOf('<div class="buckets">');
+  assert.ok(featuredAt > -1 && featuredAt < bucketsAt, "featured skill should lead the catalog");
+  assert.match(html.slice(featuredAt, bucketsAt), /href="deliver\/de-slop\.html"/);
+});
+
+test("invocation counts in the how-it-works copy are derived from the skills", () => {
+  const html = buildSite(oneSkill(), new Map());
+  assert.match(html, /0 skills wait to be asked/);
+  assert.match(html, /1 skill loads automatically/);
+  assert.doesNotMatch(html, /eighteen|Three skills/);
+});
+
+test("the landing page names Ragnar as the author near the hero", () => {
+  const html = buildSite(oneSkill(), new Map());
+  assert.match(html, /<meta name="author" content="Ragnar Pitla">/);
+  assert.match(html, /class="byline">Written by <a[^>]+>Ragnar Pitla<\/a>/);
+});
+
 test("invocation is shown, because it changes how you reach the skill", () => {
   assert.match(buildSite(oneSkill(), new Map()), /badge auto/);
   assert.match(buildSite(oneSkill({ userInvoked: true }), new Map()), /You invoke it/);
@@ -138,7 +193,7 @@ test("unpromoted skills stay off the page", () => {
     [...oneSkill(), { name: "hidden", bucket: "in-progress", promoted: false, userInvoked: false }],
     new Map(),
   );
-  assert.doesNotMatch(html, /hidden/);
+  assert.doesNotMatch(html, /(?:in-progress\/hidden|assets\/skills\/hidden)/);
 });
 
 test("a description containing markup is escaped", () => {
@@ -166,6 +221,12 @@ test("each skill knows the page it will be published at", () => {
 
 test("each skill points back at its own source, so a page can always be checked", () => {
   assert.match(buildSkillsData(two), /source: ".*\/blob\/main\/skills\/build\/a-skill\/SKILL\.md"/);
+});
+
+test("each skill points at its own generated visual", () => {
+  const yml = buildSkillsData(two);
+  assert.match(yml, /visual: "\/assets\/skills\/a-skill\.svg"/);
+  assert.match(yml, /visual: "\/assets\/skills\/b-skill\.svg"/);
 });
 
 test("the chain has no previous at the start and no next at the end", () => {
@@ -206,6 +267,21 @@ test("the committed data file lists every promoted skill exactly once", () => {
   assert.ok(names.length >= 20, `expected the full set, got ${names.length}`);
 });
 
+test("the committed visual directory has one SVG for every promoted skill", () => {
+  const yml = readFileSync(path.join(REPO, "docs/_data/skills.yml"), "utf8");
+  const expected = [...yml.matchAll(/^- name: "(.+?)"$/gm)].map((m) => `${m[1]}.svg`).sort();
+  const actual = readdirSync(path.join(REPO, "docs/assets/skills")).filter((name) => name.endsWith(".svg")).sort();
+  assert.deepEqual(actual, expected);
+});
+
+test("skill visuals are escaped, branded and accessible when opened directly", () => {
+  const svg = buildSkillVisual(oneSkill({ displayName: 'A <skill> & "test"' })[0]);
+  assert.match(svg, /<title id="title">A &lt;skill&gt; &amp; &quot;test&quot;<\/title>/);
+  assert.match(svg, /role="img" aria-labelledby="title desc"/);
+  assert.match(svg, /WRITTEN BY RAGNAR PITLA/);
+  assert.doesNotMatch(svg, /<skill>/);
+});
+
 // ------------------------------------------------------------ copy buttons
 
 // The copy buttons are added at runtime, so nothing about the generated markup
@@ -215,4 +291,17 @@ test("both the landing page and the skill pages load the copy script", () => {
   assert.ok(readFileSync(js, "utf8").includes("clipboard"), "copy.js does not copy anything");
   assert.match(readFileSync(path.join(REPO, "docs/index.html"), "utf8"), /assets\/copy\.js/);
   assert.match(readFileSync(path.join(REPO, "docs/_layouts/default.html"), "utf8"), /assets\/copy\.js/);
+});
+
+test("skill pages show the generated visual and visible Ragnar byline", () => {
+  const layout = readFileSync(path.join(REPO, "docs/_layouts/default.html"), "utf8");
+  assert.match(layout, /skill\.visual \| relative_url/);
+  assert.match(layout, /Written by <a[^>]+>Ragnar Pitla<\/a>/);
+  assert.match(layout, /og:image" content="\{\{ '\/assets\/readme-hero\.png' \| absolute_url \}\}"/);
+});
+
+test("light is the primary site theme regardless of the device preference", () => {
+  const css = readFileSync(path.join(REPO, "docs/assets/site.css"), "utf8");
+  assert.match(css, /color-scheme:\s*light/);
+  assert.doesNotMatch(css, /prefers-color-scheme:\s*dark/);
 });

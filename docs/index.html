@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Microsoft Agent Skills - Hard-won practice for building agents across the Microsoft ecosystem.</title>
 <meta name="description" content="Hard-won practice for building agents across the Microsoft ecosystem.">
+<meta name="author" content="Ragnar Pitla">
 <meta property="og:title" content="Microsoft Agent Skills">
 <meta property="og:description" content="Hard-won practice for building agents across the Microsoft ecosystem.">
 <meta property="og:image" content="https://github.com/RagnarPitla/microsoft-agent-skills/raw/main/docs/assets/readme-hero.png">
@@ -37,6 +38,7 @@
   <section class="hero">
     <div class="wrap hero-in">
       <div class="hero-copy">
+        <p class="byline">Written by <a href="https://www.linkedin.com/in/ragnarpitla">Ragnar Pitla</a></p>
         <h1>Agent skills for the Microsoft stack, written from real builds.</h1>
         <p class="lede">Most agent advice stops at the demo. These 21 skills carry the part after that: the order to do things in, the questions worth asking before you build, and the failures that only show up once real users arrive.</p>
         <p class="lede">Plain Markdown, no harness lock-in. If your tool can read a file into context, it can run these.</p>
@@ -56,7 +58,7 @@
     <div class="wrap narrow">
       <h2>You have probably hit this</h2>
       <p>The agent demos beautifully. Then it goes to real users, and it answers a question three different ways in three sessions, cites a page that does not say what it claims, and nobody can tell you who owns it or what it costs to run.</p>
-      <p>None of that is a model problem. It is the part of the work that happens after the demo, and it is the part almost nobody writes down. That is what is in here.</p>
+      <p>A stronger model alone will not fix those failures. Grounding, evaluation, ownership and operations are the part of the work that happens after the demo, and the part almost nobody writes down. That is what is in here.</p>
     </div>
   </section>
 
@@ -73,7 +75,7 @@
           <li>
             <span class="num">2</span>
             <h3>Ask, or just work</h3>
-            <p>Three skills wait to be asked, because an interview that starts itself is worse than no interview. The other eighteen load themselves when the task matches.</p>
+            <p>3 skills wait to be asked, because an interview that starts itself is worse than no interview. 18 skills load automatically when the task matches.</p>
           </li>
           <li>
             <span class="num">3</span>
@@ -93,6 +95,15 @@
     <div class="wrap">
       <h2>The skill set</h2>
       <p class="sub">Grouped by what you are doing, not by which Microsoft product is involved. Products get renamed, and a skill filed under a renamed product becomes unfindable.</p>
+      <a class="featured-skill" href="deliver/de-slop.html">
+        <span class="featured-copy">
+          <span class="featured-kicker">Featured skill of the week</span>
+          <span class="featured-title">De-slop</span>
+          <span class="featured-description">Rewrite text that reads like a model wrote it into something a person would send.</span>
+          <span class="featured-meta"><span class="badge auto">Automatic</span><span class="featured-action">Open the skill <span aria-hidden="true">-&gt;</span></span></span>
+        </span>
+        <span class="featured-art"><img src="assets/skills/de-slop.svg" alt="" width="1200" height="630"></span>
+      </a>
       <div class="buckets">
         <div class="bucket" id="build">
           <div class="bucket-head">
@@ -101,24 +112,36 @@
           </div>
           <div class="skills">
           <a class="skill" href="build/copilot-studio-knowledge-grounding.html">
-            <h3>Copilot Studio knowledge grounding</h3>
-            <p>Diagnose and fix a Copilot Studio agent that hallucinates, cites the wrong source, or answers inconsistently.</p>
-            <footer><code>copilot-studio-knowledge-grounding</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/copilot-studio-knowledge-grounding.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Copilot Studio knowledge grounding</h3>
+              <p>Diagnose and fix a Copilot Studio agent that hallucinates, cites the wrong source, or answers inconsistently.</p>
+              <div class="skill-meta"><code>copilot-studio-knowledge-grounding</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="build/copilot-studio-production-patterns.html">
-            <h3>Copilot Studio production patterns</h3>
-            <p>The patterns that separate a Copilot Studio agent that demos well from one that survives production.</p>
-            <footer><code>copilot-studio-production-patterns</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/copilot-studio-production-patterns.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Copilot Studio production patterns</h3>
+              <p>The patterns that separate a Copilot Studio agent that demos well from one that survives production.</p>
+              <div class="skill-meta"><code>copilot-studio-production-patterns</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="build/migrate-agent-to-skills.html">
-            <h3>Migrate agent to skills</h3>
-            <p>Move an existing agent off a monolithic system prompt onto portable, versioned skill files without carrying its rot forward.</p>
-            <footer><code>migrate-agent-to-skills</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/migrate-agent-to-skills.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Migrate agent to skills</h3>
+              <p>Move an existing agent off a monolithic system prompt onto portable, versioned skill files without carrying its rot forward.</p>
+              <div class="skill-meta"><code>migrate-agent-to-skills</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="build/write-a-skill.html">
-            <h3>Write a skill</h3>
-            <p>Write or repair an agent skill so it fires when it should and stays quiet when it should not.</p>
-            <footer><code>write-a-skill</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/write-a-skill.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Write a skill</h3>
+              <p>Write or repair an agent skill so it fires when it should and stays quiet when it should not.</p>
+              <div class="skill-meta"><code>write-a-skill</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           </div>
         </div>
@@ -130,14 +153,20 @@
           </div>
           <div class="skills">
           <a class="skill" href="connect/copilot-studio-auth-patterns.html">
-            <h3>Copilot Studio auth patterns</h3>
-            <p>Choose and debug authentication for a Copilot Studio agent, including channel reach and token access.</p>
-            <footer><code>copilot-studio-auth-patterns</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/copilot-studio-auth-patterns.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Copilot Studio auth patterns</h3>
+              <p>Choose and debug authentication for a Copilot Studio agent, including channel reach and token access.</p>
+              <div class="skill-meta"><code>copilot-studio-auth-patterns</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="connect/ground-agents-in-work-context.html">
-            <h3>Ground agents in work context</h3>
-            <p>Choose the right grounding layer for an agent across the Microsoft IQ stack, and live with what that choice costs.</p>
-            <footer><code>ground-agents-in-work-context</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/ground-agents-in-work-context.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Ground agents in work context</h3>
+              <p>Choose the right grounding layer for an agent across the Microsoft IQ stack, and live with what that choice costs.</p>
+              <div class="skill-meta"><code>ground-agents-in-work-context</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           </div>
         </div>
@@ -149,19 +178,28 @@
           </div>
           <div class="skills">
           <a class="skill" href="review/assess-change-blast-radius.html">
-            <h3>Assess change blast radius</h3>
-            <p>Work out what a Power Platform or Copilot Studio change breaks somewhere else, before it ships.</p>
-            <footer><code>assess-change-blast-radius</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/assess-change-blast-radius.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Assess change blast radius</h3>
+              <p>Work out what a Power Platform or Copilot Studio change breaks somewhere else, before it ships.</p>
+              <div class="skill-meta"><code>assess-change-blast-radius</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="review/evaluate-agent-quality.html">
-            <h3>Evaluate agent quality</h3>
-            <p>Measure whether an agent works, and whether it still works, with a recorded eval set.</p>
-            <footer><code>evaluate-agent-quality</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/evaluate-agent-quality.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Evaluate agent quality</h3>
+              <p>Measure whether an agent works, and whether it still works, with a recorded eval set.</p>
+              <div class="skill-meta"><code>evaluate-agent-quality</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="review/review-copilot-studio-agent.html">
-            <h3>Review Copilot Studio agent</h3>
-            <p>Review a Copilot Studio agent's YAML for defects that matter before it ships.</p>
-            <footer><code>review-copilot-studio-agent</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/review-copilot-studio-agent.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Review Copilot Studio agent</h3>
+              <p>Review a Copilot Studio agent's YAML for defects that matter before it ships.</p>
+              <div class="skill-meta"><code>review-copilot-studio-agent</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           </div>
         </div>
@@ -173,29 +211,44 @@
           </div>
           <div class="skills">
           <a class="skill" href="operate/govern-agent-lifecycle.html">
-            <h3>Govern agent lifecycle</h3>
-            <p>Decide whether an agent should still exist, who owns it, and whether it is governed the way production requires.</p>
-            <footer><code>govern-agent-lifecycle</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/govern-agent-lifecycle.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Govern agent lifecycle</h3>
+              <p>Decide whether an agent should still exist, who owns it, and whether it is governed the way production requires.</p>
+              <div class="skill-meta"><code>govern-agent-lifecycle</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="operate/monitor-agent-telemetry.html">
-            <h3>Monitor agent telemetry</h3>
-            <p>Set up the signals that tell you an agent is healthy and being used before a user has to report otherwise.</p>
-            <footer><code>monitor-agent-telemetry</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/monitor-agent-telemetry.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Monitor agent telemetry</h3>
+              <p>Set up the signals that tell you an agent is healthy and being used before a user has to report otherwise.</p>
+              <div class="skill-meta"><code>monitor-agent-telemetry</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="operate/plan-agent-capacity-and-cost.html">
-            <h3>Plan agent capacity and cost</h3>
-            <p>Work out whether an agent's message capacity, quota or spend is sized correctly before a limit or a bill surprises someone.</p>
-            <footer><code>plan-agent-capacity-and-cost</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/plan-agent-capacity-and-cost.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Plan agent capacity and cost</h3>
+              <p>Work out whether an agent's message capacity, quota or spend is sized correctly before a limit or a bill surprises someone.</p>
+              <div class="skill-meta"><code>plan-agent-capacity-and-cost</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="operate/power-platform-alm-connection-refs.html">
-            <h3>Power Platform ALM connection references</h3>
-            <p>Fix and prevent Power Platform solution imports that break on connection references, environment variables and flow ownership.</p>
-            <footer><code>power-platform-alm-connection-refs</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/power-platform-alm-connection-refs.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Power Platform ALM connection references</h3>
+              <p>Fix and prevent Power Platform solution imports that break on connection references, environment variables and flow ownership.</p>
+              <div class="skill-meta"><code>power-platform-alm-connection-refs</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="operate/respond-to-agent-incidents.html">
-            <h3>Respond to agent incidents</h3>
-            <p>Triage and recover when a live agent is failing right now and users are affected.</p>
-            <footer><code>respond-to-agent-incidents</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/respond-to-agent-incidents.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Respond to agent incidents</h3>
+              <p>Triage and recover when a live agent is failing right now and users are affected.</p>
+              <div class="skill-meta"><code>respond-to-agent-incidents</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           </div>
         </div>
@@ -207,34 +260,52 @@
           </div>
           <div class="skills">
           <a class="skill" href="deliver/ask-ragnar.html">
-            <h3>Ask Ragnar</h3>
-            <p>Work out which skill in this repo fits the situation in front of you.</p>
-            <footer><code>ask-ragnar</code><span class="badge you">You invoke it</span></footer>
+            <div class="skill-art"><img src="assets/skills/ask-ragnar.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Ask Ragnar</h3>
+              <p>Work out which skill in this repo fits the situation in front of you.</p>
+              <div class="skill-meta"><code>ask-ragnar</code><span class="badge you">You invoke it</span></div>
+            </div>
           </a>
           <a class="skill" href="deliver/choose-agent-platform.html">
-            <h3>Choose agent platform</h3>
-            <p>Work out which Microsoft platform an agent should be built on, and write down why.</p>
-            <footer><code>choose-agent-platform</code><span class="badge you">You invoke it</span></footer>
+            <div class="skill-art"><img src="assets/skills/choose-agent-platform.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Choose agent platform</h3>
+              <p>Work out which Microsoft platform an agent should be built on, and write down why.</p>
+              <div class="skill-meta"><code>choose-agent-platform</code><span class="badge you">You invoke it</span></div>
+            </div>
           </a>
           <a class="skill" href="deliver/de-slop.html">
-            <h3>De-slop</h3>
-            <p>Rewrite text that reads like a model wrote it into something a person would send.</p>
-            <footer><code>de-slop</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/de-slop.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>De-slop</h3>
+              <p>Rewrite text that reads like a model wrote it into something a person would send.</p>
+              <div class="skill-meta"><code>de-slop</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="deliver/discovery.html">
-            <h3>Discovery</h3>
-            <p>A structured interview that pins down what you are actually building before you build it.</p>
-            <footer><code>discovery</code><span class="badge you">You invoke it</span></footer>
+            <div class="skill-art"><img src="assets/skills/discovery.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Discovery</h3>
+              <p>A structured interview that pins down what you are actually building before you build it.</p>
+              <div class="skill-meta"><code>discovery</code><span class="badge you">You invoke it</span></div>
+            </div>
           </a>
           <a class="skill" href="deliver/structured-interview.html">
-            <h3>Structured interview</h3>
-            <p>Interview the user until every open branch of a plan or design is resolved.</p>
-            <footer><code>structured-interview</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/structured-interview.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Structured interview</h3>
+              <p>Interview the user until every open branch of a plan or design is resolved.</p>
+              <div class="skill-meta"><code>structured-interview</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           <a class="skill" href="deliver/what-should-i-build.html">
-            <h3>What should I build</h3>
-            <p>Work out whether this needs an agent at all, and whether to consume, govern or build.</p>
-            <footer><code>what-should-i-build</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/what-should-i-build.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>What should I build</h3>
+              <p>Work out whether this needs an agent at all, and whether to consume, govern or build.</p>
+              <div class="skill-meta"><code>what-should-i-build</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           </div>
         </div>
@@ -246,9 +317,12 @@
           </div>
           <div class="skills">
           <a class="skill" href="learn/explain-concept.html">
-            <h3>Explain concept</h3>
-            <p>Explain a Microsoft ecosystem concept after diagnosing what the person actually misunderstands.</p>
-            <footer><code>explain-concept</code><span class="badge auto">Automatic</span></footer>
+            <div class="skill-art"><img src="assets/skills/explain-concept.svg" alt="" width="1200" height="630" loading="lazy"></div>
+            <div class="skill-body">
+              <h3>Explain concept</h3>
+              <p>Explain a Microsoft ecosystem concept after diagnosing what the person actually misunderstands.</p>
+              <div class="skill-meta"><code>explain-concept</code><span class="badge auto">Automatic</span></div>
+            </div>
           </a>
           </div>
         </div>
